@@ -7,3 +7,13 @@ export const signup = (email, password) => {
 export const signin = (email, password) => {
   return auth().signInWithEmailAndPassword(email, password);
 };
+
+export const signInWithGoogle = () => {
+  const provider = new auth.GoogleAuthProvider();
+  return auth().signInWithPopup(provider);
+};
+
+export const signInWithGitHub = () => {
+  const provider = new auth.GithubAuthProvider();
+  return auth().signInWithPopup(provider);
+};
