@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { signup } from '../helpers/auth';
+import { signin } from '../helpers/auth';
 
 const Login = () => {
   const [formState, setFormState] = useState({
@@ -19,7 +19,7 @@ const Login = () => {
 
     try {
       const { email, password } = formState;
-      await signup(email, password);
+      await signin(email, password);
     } catch (error) {
       setFormState({ ...formState, error: error.message });
     }
@@ -52,7 +52,7 @@ const Login = () => {
         </div>
         <div>
           {formState.error ? <p>{formState.error}</p> : null}
-          <button type="submit">Sign up</button>
+          <button type="submit">Login up</button>
         </div>
         <hr />
         <p>
